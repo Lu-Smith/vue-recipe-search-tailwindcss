@@ -6,6 +6,9 @@
         placeholder="Search for meals..." />
         <div 
         class="flex gap-1">
+        <router-link to="/" v-for="letter of letters">
+            {{  letter }}
+        </router-link>
         </div>
     </div>
 </template>
@@ -14,7 +17,7 @@
 import { computed } from 'vue';
 import store from '../store';
 
-const meals = computed(() => store.state.meals)
+const meals = computed(() => store.state.meals);
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
-console.log(meals.value)
 </script>
