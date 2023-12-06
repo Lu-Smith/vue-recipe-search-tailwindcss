@@ -6,7 +6,10 @@
         placeholder="Search for meals..."
       />
       <div class="flex gap-2">
-        <router-link to="/" v-for="letter of letters">
+        <router-link 
+        :to="{name: 'byLetter', params: {letter}}" 
+        v-for="letter of letters"
+        :key="letter">
           <span class="hover:text-linksColor duration-300">{{ letter }}</span>
         </router-link>
       </div>
