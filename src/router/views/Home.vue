@@ -1,5 +1,5 @@
 <template>
-    <div class="flex p-8 justify-center">
+    <div class="flex p-8 justify-center items-center flex-col gap-2">
         <input 
         type="text"
         class="rounded bordr-2 border-grey-200 w-full"
