@@ -10,19 +10,19 @@
       </router-link>
       <div class="flex items-center">
         <router-link 
-        :to="{name: 'home'}" 
+        :to="{name: 'byMeal'}" 
         class="px-2 h-full hover:bg-linksColor hover:text-textColor
         duration-600 inline-flex items-center transition-colors  font-medium">
           Search Meals
         </router-link>
         <router-link 
-        :to="{name: 'home'}"
+        :to="{name: 'byLetter'}"
         class="px-2 h-full hover:bg-linksColor hover:text-textColor
         duration-600 inline-flex items-center transition-colors  font-medium">
           Search by Letter
         </router-link>
         <router-link 
-        :to="{name: 'home'}"
+        :to="{name: 'byIngredients'}"
         class="px-2 h-full hover:bg-linksColor hover:text-textColor
         duration-600 inline-flex items-center transition-colors font-medium pr-4">
           Search by Ingredients
