@@ -13,6 +13,7 @@
           <span class="hover:text-linksColor duration-300">{{ letter }}</span>
         </router-link>
       </div>
+      <pre>{{ ingredients }}</pre>
     </div>
 </template>
 
