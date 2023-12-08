@@ -17,14 +17,17 @@
 </template>
 
 <script lang="ts" setup>
-    import { computed } from 'vue';
+    import { computed, onMounted } from 'vue';
     import store from '../store';
     import axiosClient from '../../axiosClient.js';
 
     const meals = computed(() => store.state.meals);
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
-    onMounted(() => {
-      axiosClient.get('list.php?i=list')
+    onMounted(async () => {
+      const response = await axiosClient.get('list.php?i=list')
+      .then
+
+      console.log (response)
     })
 </script>
