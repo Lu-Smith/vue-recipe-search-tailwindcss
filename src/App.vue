@@ -1,6 +1,13 @@
 <template>
-  <router-view />
-  <Footer />
+  <div>
+    <header class="bg-textColor shadow-md">
+
+    </header>
+    <main>
+      <router-view />
+    </main>
+    <Footer />
+  </div>
 </template>
 
 <script setup lang="ts">
