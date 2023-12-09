@@ -1,4 +1,4 @@
 <template>
-   Login Page
+   <router-view />
 </template>
 
