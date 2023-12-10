@@ -7,13 +7,17 @@
         @change="searchMeals"
         />
     </div>
+    <div>
+        <pre>{{ meals }}</pre>
+    </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import store from '../store'
 
 const keyword = ref('');
+const meals = computed(() => store.state.searchedMeals)
 function searchMeals() {
     store.dispatch('searchMeals', keyword.value)
 };
