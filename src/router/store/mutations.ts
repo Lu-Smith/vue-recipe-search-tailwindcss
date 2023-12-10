@@ -1,7 +1,7 @@
 interface State {
-    setSearchedMeals: string[]; 
+    searchedMeals: string[]; 
 }
 
 export function setSearchedMeals(state: State, meals: string[]) {
-    state.setSearchedMeals = meals
+    state.searchedMeals = meals
 };
