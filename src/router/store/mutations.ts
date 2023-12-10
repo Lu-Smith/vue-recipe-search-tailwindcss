@@ -1,3 +1,7 @@
-export function setSearchedMeals(state, meals) {
-    state.setSearchedMeals = meals
+interface State {
+    setSearchedMeals: string[]; 
 }
+
+export function setSearchedMeals(state: State, meals: string[]) {
+    state.setSearchedMeals = meals
+};
