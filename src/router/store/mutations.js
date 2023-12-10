@@ -1,3 +1,3 @@
 export default setSearchedMeals(state, meals) {
-    state
+    state.setSearchedMeals = meals
 }
