@@ -11,10 +11,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import axiosClient from '../../axioxClient.js'
+import { storeKey } from 'vuex/types/index.js';
 
 const keyword = ref('');
 function SearchMeals() {
-    axiosClient.get(`search.php?s=${keyword.value}`)
+    storeKey.dispatch('searchMeals', keyword.value)
 };
 
 </script>
