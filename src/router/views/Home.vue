@@ -1,24 +1,30 @@
 <template>
-    <div class="flex p-8 justify-center items-center flex-col gap-2">
-
-      <!-- <pre>{{ ingredients }}</pre> -->
+  <div class="flex p-8 justify-center items-center flex-col gap-2">
+    <div v-for="recipe in recipes" :key="recipe.idIngredient" class="w-full">
+      <pre>{{ recipe.strIngredient }}</pre>
+      <pre>{{ recipe.strDescription }}</pre>
     </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-    import { computed, onMounted, ref } from 'vue';
-    import store from '../store';
-    import axiosClient from '../../axiosClient.js';
+    import { onMounted, ref } from 'vue';
+    import axiosClient from '../../axiosClient.ts';
 
-    const meals = computed(() => store.state.meals);
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-    const ingredients = ref([])
+    interface Recipe {
+      idIngredient: string;
+      strIngredient: string;
+      strDescription: string;
+      strType: string | null;
+    }
+
+    const ingredients = ref<{ meals: Recipe[] }>({ meals: [] });ref([]);
+    const recipes = ref<Recipe[]>([]);
 
     onMounted(async () => {
       const response = await axiosClient.get('list.php?i=list')
-
       ingredients.value = response.data
-  
-      console.log (ingredients.value)
+      recipes.value = ingredients.value.meals
+      console.log(recipes.value)
     })
 </script>
