@@ -11,10 +11,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import axiosClient from '../../axioxClient.js'
+import store from '../store'
 
 const keyword = ref('');
-function SearchMeals() {
+function searchMeals() {
     store.dispatch('searchMeals', keyword.value)
 };
 
