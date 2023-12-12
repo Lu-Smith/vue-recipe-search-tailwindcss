@@ -8,13 +8,26 @@
         v-model="keyword"
       />
     </div>
-    <div class="grid grid-cols-2 gap-5 md:grid-cols-3 p-8">
-      <div v-for="meal of meals" :key="meal.idMeal" 
-      class="bg-addColor shadow">
-        <img :src="meal.strMealThumb" :alt="meal.strMeal">
-        <h3 class="px-3 py-2 font-semibold">{{ meal.strMeal }}</h3>
-        <div class="px-3 py-2">
-          <a :href="meal.strYoutube" target="_blank">YouTube</a>
+    <div 
+        class="grid grid-cols-2 gap-5 md:grid-cols-3 p-8">
+      <div 
+        v-for="meal of meals" 
+        :key="meal.idMeal" 
+        class="bg-addColor shadow rounded-xl tracking-wide">
+        <img 
+            :src="meal.strMealThumb" 
+            :alt="meal.strMeal"
+            class="rounded-t-xl h-48 object-cover w-full">
+        <div>
+            <h3 class="px-3 py-2 font-bold">{{ meal.strMeal }}</h3>
+            <div class="px-3 py-3">
+                <a 
+                    :href="meal.strYoutube" 
+                    target="_blank" 
+                    class=" px-3 py-2 rounded border border-bgColor">
+                        YouTube
+                </a>
+            </div>
         </div>
       </div>
     </div>
