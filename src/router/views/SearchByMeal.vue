@@ -8,11 +8,12 @@
         v-model="keyword"
       />
     </div>
-    <div class="grid grid-cols-2 gap-3 md:grid-cols-3">
-      <div v-for="meal of meals" :key="meal.idMeal" >
+    <div class="grid grid-cols-2 gap-5 md:grid-cols-3 p-8">
+      <div v-for="meal of meals" :key="meal.idMeal" 
+      class="bg-addColor shadow">
         <img :src="meal.strMealThumb" :alt="meal.strMeal">
-        <h3>{{ meal.strMeal }}</h3>
-        <div>
+        <h3 class="px-3 py-2 font-semibold">{{ meal.strMeal }}</h3>
+        <div class="px-3 py-2">
           <a :href="meal.strYoutube" target="_blank">YouTube</a>
         </div>
       </div>
