@@ -18,15 +18,22 @@
             :src="meal.strMealThumb" 
             :alt="meal.strMeal"
             class="rounded-t-xl h-48 object-cover w-full">
-        <div>
+        <div class="flex items-start justify-center flex-col">
             <h3 class="px-3 py-2 font-bold">{{ meal.strMeal }}</h3>
-            <div class="px-3 py-3">
+            <div class="px-3 py-3 flex items-end justify-center gap-3 w-full">
                 <a 
                     :href="meal.strYoutube" 
                     target="_blank" 
-                    class=" px-3 py-2 rounded border border-bgColor">
+                    class=" px-3 py-2 rounded border border-textColor
+                    hover:bg-red-600 transition-colors">
                         YouTube
                 </a>
+                <router-view to="/">
+                    <span class="px-3 py-2 rounded border border-textColor
+                    hover:bg-bgColor transition-colors">
+                        View
+                    </span>
+                </router-view>
             </div>
         </div>
       </div>
