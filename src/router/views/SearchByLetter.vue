@@ -22,7 +22,6 @@
       const response = await axiosClient.get('list.php?i=list')
 
       ingredients.value = response.data
-  
-      console.log (ingredients.value)
+
     })
 </script>

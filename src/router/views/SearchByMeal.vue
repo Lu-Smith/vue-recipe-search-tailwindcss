@@ -20,6 +20,7 @@
             class="rounded-t-xl h-48 object-cover w-full">
         <div class="flex items-start justify-center flex-col">
             <h3 class="px-3 py-2 font-bold">{{ meal.strMeal }}</h3>
+            <p class="px-3 py-2">{{ truncateInstructions(meal.strInstructions) }}</p>
             <div class="px-3 py-3 flex items-end justify-center gap-3 w-full">
                 <a 
                     :href="meal.strYoutube" 
@@ -41,7 +42,7 @@
   </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed } from 'vue';
 import store from '../store';
 
 interface MealsProps {
@@ -49,17 +50,27 @@ interface MealsProps {
       strMeal: string;
       strMealThumb: string;
       idMeal: string;
+      strInstructions: string;
     }
 
 const keyword = ref('');
 const meals = computed<MealsProps[]>(() => store.state.searchedMeals)
 function searchMeals() {
     store.dispatch('searchMeals', keyword.value)
-    
 };
 
-onMounted(() => {
+const truncateInstructions = (instructions:string) => {
+  const words = instructions.split(' ');
+
+  if (words.length > 40) {
+    return words.slice(0, 40).join(' ') + '...';
+  }
+
+  return instructions;
+};
+
+
   console.log(meals.value);
-});
+
 
 </script>
