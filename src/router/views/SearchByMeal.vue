@@ -19,9 +19,17 @@
             :alt="meal.strMeal"
             class="rounded-t-xl h-48 object-cover w-full">
         <div class="flex items-start justify-center flex-col">
-            <h3 class="px-3 py-2 font-bold">{{ meal.strMeal }}</h3>
-            <p class="px-3 py-2">{{ truncateInstructions(meal.strInstructions) }}</p>
-            <div class="px-3 py-3 flex items-end justify-center gap-3 w-full">
+            <h3 
+                class="px-3 py-2 font-bold">
+                {{ meal.strMeal }}
+            </h3>
+            <p 
+                class="px-3 py-2" >
+                {{ truncateInstructions(meal.strInstructions) }}
+            </p>
+            <div 
+                class="px-3 py-3 flex items-center md:items-end justify-center 
+                gap-5 w-full m-auto flex-col md:flex-row">
                 <a 
                     :href="meal.strYoutube" 
                     target="_blank" 
@@ -62,8 +70,8 @@ function searchMeals() {
 const truncateInstructions = (instructions:string) => {
   const words = instructions.split(' ');
 
-  if (words.length > 40) {
-    return words.slice(0, 40).join(' ') + '...';
+  if (words.length > 25) {
+    return words.slice(0, 25).join(' ') + '...';
   }
 
   return instructions;
