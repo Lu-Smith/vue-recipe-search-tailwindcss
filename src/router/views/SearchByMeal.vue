@@ -14,7 +14,7 @@
         v-for="meal of meals" 
         :key="meal.idMeal" 
         class="bg-addColor shadow rounded-xl tracking-wide">
-        <router-link to="/">
+        <router-link :to="{ name: 'byMeal', params: { meal: keyword } }">
           <img 
             :src="meal.strMealThumb" 
             :alt="meal.strMeal"
@@ -29,6 +29,7 @@
                 class="px-5 md:px-3 py-2 items-center md:items-start text-justify flex" >
                 {{ truncateInstructions(meal.strInstructions) }}
             </p>
+            <pre>{{ keyword }}</pre>
             <div 
                 class="px-3 py-3 flex items-center md:items-end justify-center 
                 gap-5 w-full m-auto flex-col md:flex-row">
@@ -39,12 +40,12 @@
                     hover:bg-red-600 transition-colors">
                         YouTube
                 </a>
-                <router-view to="/">
+                <router-link :to="{ name: 'byMeal', params: { meal: keyword } }">
                     <span class="px-3 py-2 rounded border border-textColor
                     hover:bg-bgColor transition-colors">
                         View
                     </span>
-                </router-view>
+                </router-link>
             </div>
         </div>
       </div>
@@ -52,7 +53,7 @@
   </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 import store from '../store';
 import { useRoute } from 'vue-router';
 
@@ -82,8 +83,15 @@ const truncateInstructions = (instructions:string) => {
   return instructions;
 };
 
+watch(() => keyword.value, () => {
+  searchMeals();
+});
+
+
 onMounted(() => {
-  keyword.value = route.params.name 
+  keyword.value = route.params.name as string
+
+  console.log(searchMeals);
 
   console.log('kewword', keyword.value)
   console.log(meals.value);
@@ -92,7 +100,5 @@ onMounted(() => {
     searchMeals();
   }
 })
-
-
 
 </script>
