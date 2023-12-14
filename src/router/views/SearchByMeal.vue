@@ -18,13 +18,13 @@
             :src="meal.strMealThumb" 
             :alt="meal.strMeal"
             class="rounded-t-xl h-48 object-cover w-full">
-        <div class="flex items-start justify-center flex-col">
+        <div class="flex items-center md:items-start justify-center flex-col">
             <h3 
-                class="px-3 py-2 font-bold">
+                class="px-5 md:px-3 py-3 md:py-2 font-bold">
                 {{ meal.strMeal }}
             </h3>
             <p 
-                class="px-3 py-2" >
+                class="px-5 md:px-3 py-2 items-center md:items-start text-justify flex" >
                 {{ truncateInstructions(meal.strInstructions) }}
             </p>
             <div 
