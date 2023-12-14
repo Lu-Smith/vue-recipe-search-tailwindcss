@@ -14,10 +14,12 @@
         v-for="meal of meals" 
         :key="meal.idMeal" 
         class="bg-addColor shadow rounded-xl tracking-wide">
-        <img 
+        <router-link to="/">
+          <img 
             :src="meal.strMealThumb" 
             :alt="meal.strMeal"
             class="rounded-t-xl h-48 object-cover w-full">
+        </router-link>
         <div class="flex items-center md:items-start justify-center flex-col">
             <h3 
                 class="px-5 md:px-3 py-3 md:py-2 font-bold">
