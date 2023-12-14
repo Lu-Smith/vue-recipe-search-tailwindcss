@@ -44,6 +44,11 @@ const routes = [
         component: Login,
       },
     ]
+  },
+  {
+    // Wildcard route or 404 page 
+    path: "/:catchAll(.*)",
+    redirect: { name: "home" } 
   }
 ];
 

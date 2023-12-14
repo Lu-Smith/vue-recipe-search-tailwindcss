@@ -66,7 +66,8 @@ interface MealsProps {
 
 const route = useRoute();
 const keyword = ref('');
-const meals = computed<MealsProps[]>(() => store.state.searchedMeals)
+const meals = computed<MealsProps[]>(() => store.state.searchedMeals);
+
 function searchMeals() {
     store.dispatch('searchMeals', keyword.value)
 };
@@ -82,12 +83,16 @@ const truncateInstructions = (instructions:string) => {
 };
 
 onMounted(() => {
-  keyword.value = route.params.name as string
+  keyword.value = route.params.name 
+
+  console.log('kewword', keyword.value)
+  console.log(meals.value);
+
   if (keyword.value ) {
     searchMeals();
   }
 })
 
-console.log(meals.value);
+
 
 </script>
