@@ -52,8 +52,9 @@
   </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import store from '../store';
+import { useRoute } from 'vue-router';
 
 interface MealsProps {
       strYoutube: string;
@@ -63,6 +64,7 @@ interface MealsProps {
       strInstructions: string;
     }
 
+const route = useRoute();
 const keyword = ref('');
 const meals = computed<MealsProps[]>(() => store.state.searchedMeals)
 function searchMeals() {
@@ -79,8 +81,13 @@ const truncateInstructions = (instructions:string) => {
   return instructions;
 };
 
+onMounted(() => {
+  keyword.value = route.params.name as string
+  if (keyword.value ) {
+    searchMeals();
+  }
+})
 
-  console.log(meals.value);
-
+console.log(meals.value);
 
 </script>
