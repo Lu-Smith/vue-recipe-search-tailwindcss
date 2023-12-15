@@ -89,12 +89,7 @@ watch(() => keyword.value, () => {
 
 
 onMounted(() => {
-  keyword.value = route.params.name as string
-
-  console.log(searchMeals);
-
-  console.log('kewword', keyword.value)
-  console.log(meals.value);
+  keyword.value = route.params.meal as string
 
   if (keyword.value ) {
     searchMeals();
