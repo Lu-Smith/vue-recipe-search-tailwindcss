@@ -3,6 +3,7 @@ import Home from './views/Home.vue';
 import SearchByIngredients from './views/SearchByIngredients.vue';
 import SearchByLetter from './views/SearchByLetter.vue';
 import SearchByMeal from './views/SearchByMeal.vue';
+import MealDetails from './views/MealDetails.vue';
 import Login from './views/Login.vue';
 import DefaultLayout from '../components/DefaultLayout.vue';
 import GuestLayout from '../components/GuestLayout.vue';
@@ -31,6 +32,11 @@ const routes = [
         path: "/letter/:letter?",
         name: "byLetter",
         component: SearchByLetter,
+      },
+      {
+        path: "/meal/:id?",
+        name: "mealDetails",
+        component: MealDetails,
       },
     ]
   },
