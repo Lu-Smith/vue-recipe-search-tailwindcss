@@ -5,8 +5,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import axiosClient from '../../axiosClient';
+import { useRoute } from 'vue-router';
 
-const meal = ref({})
+const route = useRoute();
+const meal = ref({});
+
+onMounted(() => {
+    axiosClient.get(`lookup.php?i=${ route.params.id}`)
+})
 
 </script>
