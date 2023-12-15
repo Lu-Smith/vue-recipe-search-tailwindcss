@@ -23,26 +23,26 @@
         </router-link>
         <div class="flex items-center md:items-start justify-between h-full flex-col ">
             <h3 
-                class="px-5 md:px-3 py-3 md:py-2 font-bold">
+                class="px-5 md:px-3 py-3 md:py-2 font-bold flex-1">
                 {{ meal.strMeal }}
             </h3>
             <p 
-                class="px-5 md:px-3 py-2 items-center md:items-start text-justify flex bg-green-200" >
+                class="px-5 md:px-3 py-2 items-center md:items-start text-justify flex-2 " >
                 {{ truncateInstructions(meal.strInstructions) }}
             </p>
             <div 
-                class="px-3 py-3 flex items-center justify-center
-                gap-5 w-full m-auto flex-col md:flex-row">
+                class="px-3 py-3 w-full flex justify-center md:justify-between gap-5 md:gap-3
+                items-center md:items-baseline flex-col md:flex-row mb-4">
                 <a 
                     :href="meal.strYoutube" 
                     target="_blank" 
                     class=" px-3 py-2 rounded border border-textColor
-                    hover:bg-red-600 transition-colors">
+                    hover:bg-red-600 transition-colors w-full text-center">
                         YouTube
                 </a>
-                <router-link :to="{ name: 'byMeal', params: { meal: keyword } }">
+                <router-link :to="{ name: 'byMeal', params: { meal: keyword } }" class="w-full flex">
                     <span class="px-3 py-2 rounded border border-textColor
-                    hover:bg-bgColor transition-colors">
+                    hover:bg-bgColor transition-colors w-full text-center">
                         View
                     </span>
                 </router-link>
