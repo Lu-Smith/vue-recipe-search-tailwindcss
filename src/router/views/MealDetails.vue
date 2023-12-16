@@ -2,15 +2,15 @@
     <div class="tracking-wide w-[800px] mx-auto">
         <h1 class="text-2xl font-bold m-5">{{ meal.strMeal }}</h1>
         <img :src="meal.strMealThumb" :alt="meal.strMeal">
-        <div class="grid grid-col-1 md:grid-col-3">
+        <div class="grid grid-cols-1 md:grid-cols-3">
             <div>
                 <h2>Category: {{ meal.strCategory }}</h2>
             </div>
             <div>
-                <h2>Category: {{ meal.strCategory }}</h2>
+                <h2>Area: {{ meal.strArea }}</h2>
             </div>
             <div>
-                <h2>Category: {{ meal.strCategory }}</h2>
+                <h2>Tags: {{ meal.strTags }}</h2>
             </div>
         </div>
     </div>
@@ -27,7 +27,9 @@ interface MealsProps {
       strMealThumb: string;
       idMeal: string;
       strInstructions: string;
-      strCategory: string
+      strCategory: string;
+      strArea: string;
+      strTags: string;
 }
 
 const route = useRoute();
@@ -38,6 +40,8 @@ const meal = ref<MealsProps>({
     idMeal: '',
     strInstructions: '',
     strCategory: '',
+    strArea: '',
+    strTags: '',
 });
 
 onMounted(() => {
