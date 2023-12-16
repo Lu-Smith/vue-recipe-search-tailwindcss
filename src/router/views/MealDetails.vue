@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="tracking-wide">
+        <h1 class="text-2xl font-bold m-5">{{ meal.strMeal }}</h1>
         <img :src="meal.strMealThumb" :alt="meal.strMeal">
     </div>
 </template>
