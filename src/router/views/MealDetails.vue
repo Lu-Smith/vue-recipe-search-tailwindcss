@@ -15,16 +15,24 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3">
             <div>
-                <h2 class="text-xl font-semibold m-5">Ingredients</h2>
+                <h2 class="text-xl font-semibold mt-5 mb-2">Ingredients</h2>
                 <ul>
                     <template v-for="(_, index) of new Array(20)">
                         <li v-if="meal[`strIngredient${index + 1}`]">
-                        {{ meal[`strIngredient${index + 1}`] }}</li>
+                            {{index + 1}}. {{ meal[`strIngredient${index + 1}`] }}
+                        </li>
                     </template>
                 </ul>
             </div>
             <div>
-                <h2 class="text-xl font-semibold m-5">Measures</h2>
+                <h2 class="text-xl font-semibold mt-5 mb-2">Measures</h2>
+                <ul>
+                    <template v-for="(_, index) of new Array(20)">
+                        <li v-if="meal[`strMeasure${index + 1}`]">
+                            {{index + 1}}. {{ meal[`strMeasure${index + 1}`] }}
+                        </li>
+                    </template>
+                </ul>
             </div>
         </div>
     </div>
@@ -45,6 +53,7 @@ interface MealsProps {
       strArea: string;
       strTags: string;
       strIngredient: string[];
+      strMeasure: string[];
       [key: string]: string | string[];
 }
 
@@ -59,6 +68,7 @@ const meal = ref<MealsProps>({
     strArea: '',
     strTags: '',
     strIngredient: [],
+    strMeasure: [],
 });
 
 onMounted(() => {
