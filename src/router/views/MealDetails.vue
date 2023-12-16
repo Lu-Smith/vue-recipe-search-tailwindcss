@@ -16,7 +16,7 @@ onMounted(() => {
     axiosClient.get(`lookup.php?i=${ route.params.id}`)
     .then(({data}) => {
         debugger;
-        meal.value = data;
+        meal.value = data.meals[0] || {};
     })
 })
 </script>
