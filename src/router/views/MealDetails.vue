@@ -13,29 +13,30 @@
                 <h2 class="font-semibold">Tags: #{{ meal.strTags }}</h2>
             </div>
         </div>
-    <div>
-        <h2 class="text-xl font-semibold mt-5 mb-2">Ingredients and Measures</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>Index</th>
-                <th>Ingredients</th>
-                <th>Measures</th>
-            </tr>
-            </thead>
-            <tbody>
-            <template v-for="(_, index) of new Array(20)">
-                <tr v-if="meal[`strIngredient${index + 1}`] || meal[`strMeasure${index + 1}`]">
-                <td>{{ index + 1 }}</td>
-                <td>{{ meal[`strIngredient${index + 1}`] }}</td>
-                <td>{{ meal[`strMeasure${index + 1}`] }}</td>
-                </tr>
-            </template>
-            </tbody>
-        </table>
+        <div class="mt-5">
+            <h2 class="text-2xl font-semibold mb-2">Ingredients and Measures</h2>
+            <div class="w-[800px]">
+                <table class="border border-textColor">
+                    <thead>
+                        <tr class="bg-addColor">
+                        <th class="py-2 px-4 border-b ">Index</th>
+                        <th class="py-2 px-4 border-b text-right">Ingredients</th>
+                        <th class="py-2 px-4 border-b text-left">Measures</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template v-for="(_, index) of new Array(20)">
+                        <tr v-if="meal[`strIngredient${index + 1}`] || meal[`strMeasure${index + 1}`]">
+                            <td class="py-2 px-4 border-b text-center">{{ index + 1 }}</td>
+                            <td class="py-2 px-4 border-b text-right">{{ meal[`strIngredient${index + 1}`] }}</td>
+                            <td class="py-2 px-4 border-b text-left">{{ meal[`strMeasure${index + 1}`] }}</td>
+                        </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-</div>
-
 </template>
 
 <script setup lang="ts">
