@@ -1,6 +1,6 @@
 <template>
     <div>
-        <pre>{{ meal }}</pre>
+        <img :src="meal.strMealThumb" :alt="meal.strMeal">
     </div>
 </template>
 
@@ -9,8 +9,22 @@ import { ref, onMounted } from 'vue';
 import axiosClient from '../../axiosClient';
 import { useRoute } from 'vue-router';
 
+interface MealsProps {
+      strYoutube: string;
+      strMeal: string;
+      strMealThumb: string;
+      idMeal: string;
+      strInstructions: string;
+}
+
 const route = useRoute();
-const meal = ref({});
+const meal = ref<MealsProps>({
+    strYoutube: '',
+    strMeal: '',
+    strMealThumb: '',
+    idMeal: '',
+    strInstructions: '',
+});
 
 onMounted(() => {
     axiosClient.get(`lookup.php?i=${ route.params.id}`)
