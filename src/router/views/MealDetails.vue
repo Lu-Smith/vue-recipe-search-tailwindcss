@@ -4,13 +4,13 @@
         <img :src="meal.strMealThumb" :alt="meal.strMeal">
         <div class="grid grid-cols-1 md:grid-cols-3">
             <div>
-                <h2 class="font-semibold">Category: {{ meal.strCategory }}</h2 >
+                <h2><span class="font-bold">Category:</span> {{ meal.strCategory }}</h2 >
             </div>
             <div>
-                <h2 class="font-semibold">Area: {{ meal.strArea }}</h2>
+                <h2><span class="font-bold">Area:</span> {{ meal.strArea }}</h2>
             </div>
             <div>
-                <h2 class="font-semibold">Tags: #{{ meal.strTags }}</h2>
+                <h2><span class="font-bold">Tags:</span> #{{ meal.strTags }}</h2>
             </div>
         </div>
         <div class="mt-5">
