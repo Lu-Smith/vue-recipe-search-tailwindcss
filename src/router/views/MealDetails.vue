@@ -4,18 +4,27 @@
         <img :src="meal.strMealThumb" :alt="meal.strMeal">
         <div class="grid grid-cols-1 md:grid-cols-3">
             <div>
-                <h2 class="font-semi-bold">Category: {{ meal.strCategory }}</h2 >
+                <h2 class="font-semibold">Category: {{ meal.strCategory }}</h2 >
             </div>
             <div>
-                <h2 class="font-semi-bold">Area: {{ meal.strArea }}</h2>
+                <h2 class="font-semibold">Area: {{ meal.strArea }}</h2>
             </div>
             <div>
-                <h2 class="font-semi-bold">Tags: {{ meal.strTags }}</h2>
+                <h2 class="font-semibold">Tags: #{{ meal.strTags }}</h2>
             </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3">
             <div>
-                <h2>Ingredients</h2>
+                <h2 class="text-xl font-semibold m-5">Ingredients</h2>
+                <ul>
+                    <template v-for="(_, index) of new Array(20)">
+                        <li v-if="meal[`strIngredient${index + 1}`]">
+                        {{ meal[`strIngredient${index + 1}`] }}</li>
+                    </template>
+                </ul>
+            </div>
+            <div>
+                <h2 class="text-xl font-semibold m-5">Measures</h2>
             </div>
         </div>
     </div>
@@ -35,6 +44,8 @@ interface MealsProps {
       strCategory: string;
       strArea: string;
       strTags: string;
+      strIngredient: string[];
+      [key: string]: string | string[];
 }
 
 const route = useRoute();
@@ -47,6 +58,7 @@ const meal = ref<MealsProps>({
     strCategory: '',
     strArea: '',
     strTags: '',
+    strIngredient: [],
 });
 
 onMounted(() => {
