@@ -13,29 +13,29 @@
                 <h2 class="font-semibold">Tags: #{{ meal.strTags }}</h2>
             </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3">
-            <div>
-                <h2 class="text-xl font-semibold mt-5 mb-2">Ingredients</h2>
-                <ul>
-                    <template v-for="(_, index) of new Array(20)">
-                        <li v-if="meal[`strIngredient${index + 1}`]">
-                            {{index + 1}}. {{ meal[`strIngredient${index + 1}`] }}
-                        </li>
-                    </template>
-                </ul>
-            </div>
-            <div>
-                <h2 class="text-xl font-semibold mt-5 mb-2">Measures</h2>
-                <ul>
-                    <template v-for="(_, index) of new Array(20)">
-                        <li v-if="meal[`strMeasure${index + 1}`]">
-                            {{index + 1}}. {{ meal[`strMeasure${index + 1}`] }}
-                        </li>
-                    </template>
-                </ul>
-            </div>
-        </div>
+    <div>
+        <h2 class="text-xl font-semibold mt-5 mb-2">Ingredients and Measures</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Index</th>
+                <th>Ingredients</th>
+                <th>Measures</th>
+            </tr>
+            </thead>
+            <tbody>
+            <template v-for="(_, index) of new Array(20)">
+                <tr v-if="meal[`strIngredient${index + 1}`] || meal[`strMeasure${index + 1}`]">
+                <td>{{ index + 1 }}</td>
+                <td>{{ meal[`strIngredient${index + 1}`] }}</td>
+                <td>{{ meal[`strMeasure${index + 1}`] }}</td>
+                </tr>
+            </template>
+            </tbody>
+        </table>
     </div>
+</div>
+
 </template>
 
 <script setup lang="ts">
