@@ -15,7 +15,7 @@
         :key="meal.idMeal" 
         class="bg-addColor shadow rounded-xl tracking-wide flex
         justify-between flex-col w-full">
-        <router-link :to="{ name: 'byMeal', params: { meal: keyword } }">
+        <router-link :to="{ name: 'mealDetails', params: { id: meal.idMeal } }">
           <img 
             :src="meal.strMealThumb" 
             :alt="meal.strMeal"
@@ -40,7 +40,7 @@
                     hover:bg-red-600 transition-colors w-full text-center">
                         YouTube
                 </a>
-                <router-link :to="{ name: 'byMeal', params: { meal: keyword } }" class="w-full flex">
+                <router-link :to="{ name: 'mealDetails', params: {  id: meal.idMeal } }" class="w-full flex">
                     <span class="px-3 py-2 rounded border border-textColor
                     hover:bg-bgColor transition-colors w-full text-center">
                         View
