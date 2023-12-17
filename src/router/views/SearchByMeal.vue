@@ -33,13 +33,7 @@
             <div 
                 class="px-3 py-3 w-full flex justify-center md:justify-between gap-5 md:gap-3
                 items-center md:items-baseline flex-col md:flex-row mb-4">
-                <a 
-                    :href="meal.strYoutube" 
-                    target="_blank" 
-                    class=" px-3 py-2 rounded border border-textColor
-                    hover:bg-red-600 transition-colors w-full text-center">
-                        YouTube
-                </a>
+                <YouTubeButton :href="meal.strYoutube"/>
                 <router-link :to="{ name: 'mealDetails', params: {  id: meal.idMeal } }" class="w-full flex">
                     <span class="px-3 py-2 rounded border border-textColor
                     hover:bg-bgColor transition-colors w-full text-center">
@@ -56,6 +50,8 @@
 import { ref, computed, onMounted, watch } from 'vue';
 import store from '../store';
 import { useRoute } from 'vue-router';
+import YouTubeButton from '../../components/YouTubeButton.vue';
+
 
 interface MealsProps {
       strYoutube: string;
@@ -63,7 +59,7 @@ interface MealsProps {
       strMealThumb: string;
       idMeal: string;
       strInstructions: string;
-    }
+}
 
 const route = useRoute();
 const keyword = ref('');
