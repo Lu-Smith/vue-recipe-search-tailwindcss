@@ -38,6 +38,9 @@
                 </table>
             </div>
         </div>
+        <div>
+            <YouTubeButton :href="meal.strYoutube"/>
+        </div>
     </div>
 </template>
 
@@ -45,6 +48,7 @@
 import { ref, onMounted } from 'vue';
 import axiosClient from '../../axiosClient';
 import { useRoute } from 'vue-router';
+import YouTubeButton from '../../components/YouTubeButton.vue';
 
 interface MealsProps {
       strYoutube: string;
