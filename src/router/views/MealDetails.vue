@@ -1,16 +1,19 @@
 <template>
-    <div class="tracking-wide mx-auto">
+    <div class="mx-auto flex flex-col justify-center items-center">
         <h1 class="text-2xl font-bold m-5">{{ meal.strMeal }}</h1>
-        <img :src="meal.strMealThumb" :alt="meal.strMeal">
-        <div class="grid grid-cols-1 md:grid-cols-3">
-            <div>
-                <h2><span class="font-bold">Category:</span> {{ meal.strCategory }}</h2 >
-            </div>
-            <div>
-                <h2><span class="font-bold">Area:</span> {{ meal.strArea }}</h2>
-            </div>
-            <div>
-                <h2><span class="font-bold">Tags:</span> #{{ meal.strTags }}</h2>
+        <div class="mx-auto flex flex-col md:flex-row md:gap-8 justify-center items-center first-letter 
+        first-letter md:bg-addColor rounded pr-8">
+            <img :src="meal.strMealThumb" :alt="meal.strMeal" class="rounded w-[400px]">
+            <div class="grid grid-cols-1">
+                <div>
+                    <h2><span class="font-bold">Category:</span> {{ meal.strCategory }}</h2 >
+                </div>
+                <div>
+                    <h2><span class="font-bold">Area:</span> {{ meal.strArea }}</h2>
+                </div>
+                <div>
+                    <h2><span class="font-bold">Tags:</span> {{ meal.strTags }}</h2>
+                </div>
             </div>
         </div>
         <div class="mt-5">
@@ -43,7 +46,7 @@
             <a 
             :href="meal.strSource" 
             target="_blank" 
-            class=" px-3 py-2 
+            class=" px-3 py-2 rounded
             hover:bg-addColor transition-colors w-full text-center">
                 View Original Source
         </a>
