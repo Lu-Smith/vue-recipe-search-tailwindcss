@@ -33,7 +33,7 @@
             <div 
                 class="px-3 py-3 w-full flex justify-center md:justify-between gap-5 md:gap-3
                 items-center md:items-baseline flex-col md:flex-row mb-4">
-                <YouTubeButton :href="meal.strYoutube"/>
+                <YouTubeButton :href="meal.strYoutube">YouTube</YouTubeButton>
                 <router-link :to="{ name: 'mealDetails', params: {  id: meal.idMeal } }" class="w-full flex">
                     <span class="px-3 py-2 rounded border border-textColor
                     hover:bg-bgColor transition-colors w-full text-center">

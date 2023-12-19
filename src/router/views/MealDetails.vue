@@ -39,7 +39,7 @@
             </div>
         </div>
         <div>
-            <YouTubeButton :href="meal.strYoutube"/>
+            <YouTubeButton :href="meal.strYoutube">Go to YouTube</YouTubeButton>
         </div>
     </div>
 </template>
