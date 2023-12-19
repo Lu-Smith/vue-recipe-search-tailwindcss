@@ -38,8 +38,15 @@
                 </table>
             </div>
         </div>
-        <div>
+        <div class=" px-8 mt-8 flex justify-between gap-5 items-center md:w-1/2 mx-auto">
             <YouTubeButton :href="meal.strYoutube">Go to YouTube</YouTubeButton>
+            <a 
+            :href="meal.strSource" 
+            target="_blank" 
+            class=" px-3 py-2 
+            hover:bg-addColor transition-colors w-full text-center">
+                View Original Source
+        </a>
         </div>
     </div>
 </template>
