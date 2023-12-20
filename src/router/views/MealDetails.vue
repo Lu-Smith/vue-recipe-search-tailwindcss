@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="mt-5">
-            <h2 class="text-2xl font-semibold mb-2 text-center">Ingredients and Measures</h2>
+            <h2 class="text-xl font-semibold mb-2 text-center">Ingredients and Measures</h2>
             <div class="mx-auto">
                 <table class="border border-addColor mx-auto">
                     <thead>
@@ -40,6 +40,10 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold mb-2 text-center">Instructions</h2>
+            <p class="p-8 md:w-1/2 flex justtify-center items-center mx-auto text-justify">{{ meal.strInstructions }}</p>
         </div>
         <div class=" px-8 mt-8 flex justify-between gap-5 items-center md:w-1/2 mx-auto">
             <YouTubeButton :href="meal.strYoutube">Go to YouTube</YouTubeButton>
