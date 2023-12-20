@@ -7,24 +7,25 @@
         duration-600 inline-flex items-center transition-colors">
         Home
     </router-link>
-    <div class="flex items-center">
+    <div class="flex items-center font-medium text-sm md:text-lg">
+        Search by:
         <router-link 
         :to="{name: 'byMeal'}" 
         class="px-2 h-full hover:bg-linksColor hover:text-textColor
-        duration-600 inline-flex items-center transition-colors  font-medium">
-        Search Meals
+        duration-600 inline-flex items-center transition-colors ">
+        Meals
         </router-link>
         <router-link 
         :to="{name: 'byLetter'}"
         class="px-2 h-full hover:bg-linksColor hover:text-textColor
-        duration-600 inline-flex items-center transition-colors  font-medium">
-        Search by Letter
+        duration-600 inline-flex items-center transition-colors">
+        Letter
         </router-link>
         <router-link 
         :to="{name: 'byIngredients'}"
         class="px-2 h-full hover:bg-linksColor hover:text-textColor
-        duration-600 inline-flex items-center transition-colors font-medium pr-4">
-        Search by Ingredients
+        duration-600 inline-flex items-center transition-colors pr-2 md:pr-4">
+        Ingredients
         </router-link>
     </div>
     </header>
