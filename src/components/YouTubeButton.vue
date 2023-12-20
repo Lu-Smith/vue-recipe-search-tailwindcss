@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-    const props = defineProps({
-        href: String
-    })
+  import { toRefs } from 'vue';
+
+  const { href } = toRefs(defineProps(['href']));
 </script>
