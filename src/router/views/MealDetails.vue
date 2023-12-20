@@ -1,10 +1,11 @@
 <template>
     <div class="mx-auto flex flex-col justify-center items-center">
         <h1 class="text-2xl font-bold m-5">{{ meal.strMeal }}</h1>
-        <div class="mx-auto flex flex-col md:flex-row md:gap-8 justify-center items-center first-letter 
-        first-letter md:bg-addColor rounded pr-8">
-            <img :src="meal.strMealThumb" :alt="meal.strMeal" class="rounded w-[400px]">
-            <div class="grid grid-cols-1">
+        <div class="mx-auto flex flex-col md:flex-row md:gap-8 justify-center items-center md:bg-addColor rounded">
+            <div class="w-80 bg-red-200">
+                <img :src="meal.strMealThumb" :alt="meal.strMeal" class="rounded">
+            </div>
+            <div class="grid grid-cols-1 md:pr-8">
                 <div>
                     <h2><span class="font-bold">Category:</span> {{ meal.strCategory }}</h2 >
                 </div>
