@@ -9,13 +9,13 @@
             </div>
             <div class="grid grid-cols-1 md:pr-8">
                 <div>
-                    <h2><span class="font-bold">Category:</span> {{ meal.strCategory }}</h2 >
+                    <h2><span class="font-bold">Category:</span>{{ meal.strCategory }}</h2 >
                 </div>
                 <div>
-                    <h2><span class="font-bold">Area:</span> {{ meal.strArea }}</h2>
+                    <h2><span class="font-bold">Area:</span>{{ meal.strArea }}</h2>
                 </div>
                 <div>
-                    <h2><span class="font-bold">Tags:</span> {{ meal.strTags }}</h2>
+                    <h2><span class="font-bold">Tags:</span>{{ meal.strTags }}</h2>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
         <div class=" px-8 mt-2 mb-8 flex justify-between gap-5 items-center md:w-1/2 mx-auto">
             <YouTubeButton :href="meal.strYoutube">Go to YouTube</YouTubeButton>
             <a 
-            :href="meal.strSource" 
+            :href?="meal.strSource" 
             target="_blank" 
             class=" px-3 py-2 rounded
             hover:bg-addColor transition-colors w-full text-center">
