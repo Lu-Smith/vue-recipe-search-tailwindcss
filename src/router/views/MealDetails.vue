@@ -1,8 +1,10 @@
 <template>
     <div class="mx-auto flex flex-col justify-center items-center">
         <h1 class="text-2xl font-bold m-5">{{ meal.strMeal }}</h1>
-        <div class="mx-auto flex flex-col md:flex-row md:gap-8 justify-center items-center md:bg-addColor rounded">
-            <div class="w-80 bg-red-200">
+        <div 
+        class="mx-auto flex flex-col md:flex-row md:gap-8 justify-center 
+        items-center md:bg-addColor rounded">
+            <div class="w-80 bg-red-200 mb-2 md:mb-0">
                 <img :src="meal.strMealThumb" :alt="meal.strMeal" class="rounded">
             </div>
             <div class="grid grid-cols-1 md:pr-8">
@@ -46,7 +48,7 @@
             <h2 class="text-xl font-semibold mb-2 text-center">Instructions</h2>
             <p class="p-8 md:w-1/2 flex justtify-center items-center mx-auto text-justify">{{ meal.strInstructions }}</p>
         </div>
-        <div class=" px-8 mt-8 flex justify-between gap-5 items-center md:w-1/2 mx-auto">
+        <div class=" px-8 mt-2 mb-8 flex justify-between gap-5 items-center md:w-1/2 mx-auto">
             <YouTubeButton :href="meal.strYoutube">Go to YouTube</YouTubeButton>
             <a 
             :href="meal.strSource" 
