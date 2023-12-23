@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="flex gap-2 justify-center items-center mt-8">
+        <div class="flex gap-2 justify-center items-center mt-8 mb-8">
         <router-link 
         :to="{name: 'byLetter', params: {letter}}" 
         v-for="letter of letters"
@@ -9,9 +9,25 @@
         </router-link>
       </div>
     </div>
-    <div v-for="meal of meals" :key="meal.idMeal">
-      {{ meal.strMeal }}
-    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 w-3/4 mx-auto gap-5" >
+      <div 
+      v-for="meal of meals" 
+      :key="meal.idMeal"
+      class="flex flex-col justify-center 
+      items-center gap-3 bg-addColor rounded p-4" >
+        <div>
+          {{ meal.strMeal }}
+        </div>
+        <div>
+          <router-link :to="{ name: 'mealDetails', params: { id: meal.idMeal } }">
+                <img 
+                  :src="meal.strMealThumb" 
+                  :alt="meal.strMeal"
+                  class="rounded-xl h-48 object-cover w-full">
+            </router-link>
+        </div>
+      </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
