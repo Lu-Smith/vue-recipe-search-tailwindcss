@@ -9,19 +9,19 @@
         </router-link>
       </div>
     </div>
+    <pre>{{ meals }}</pre>
 </template>
 
 <script lang="ts" setup>
-    import { onMounted, ref } from 'vue';
-    import axiosClient from '../../axiosClient.js';
+    import { onMounted, computed } from 'vue';
+    import store from '../store';
+    import { useRoute } from 'vue-router';
 
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-    const ingredients = ref([])
+    const route = useRoute();
+    const meals = computed(() => store.state.searchedMealsByLetter);
 
-    onMounted(async () => {
-      const response = await axiosClient.get('list.php?i=list')
-
-      ingredients.value = response.data
-
+    onMounted(() => {
+      store.dispatch('searchMealsByLetter', route.params.letter)
     })
 </script>
