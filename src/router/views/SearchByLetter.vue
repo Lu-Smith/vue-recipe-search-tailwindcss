@@ -1,14 +1,15 @@
 <template>
     <div>
         <div class="flex gap-2 justify-center items-center mt-8 mb-8">
-        <router-link 
-        :to="{name: 'byLetter', params: {letter}}" 
-        v-for="letter of letters"
-        :key="letter">
-          <span class="hover:text-linksColor duration-300">{{ letter }}</span>
-        </router-link>
+          <router-link 
+          :to="{name: 'byLetter', params: {letter}}" 
+          v-for="letter of letters"
+          :key="letter">
+            <span class="hover:text-linksColor duration-300">{{ letter }}</span>
+          </router-link>
       </div>
     </div>
+    <div v-if="!meals" class="text-center w-full text-linksColor">No results found</div>
     <div class="grid md:grid-cols-2 lg:grid-cols-4 w-3/4 mx-auto gap-5" >
       <div 
       v-for="meal of meals" 
@@ -43,7 +44,7 @@
       strInstructions: string;
 }
 
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWYZ'.split('');
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     const route = useRoute();
     const meals = computed<MealsProps[]>(() => store.state.searchedMealsByLetter);
 
