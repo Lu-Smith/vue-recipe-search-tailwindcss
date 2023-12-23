@@ -5,7 +5,7 @@
         class="rounded border-2 border-grey-200 w-full text-bgColor"
         placeholder="Search for meals..."
         @change="searchMealsByIngredient"
-        v-model="ingredient"
+        v-model="ingredients"
       />
     </div>
     <div 
@@ -21,21 +21,21 @@ import { useRoute } from 'vue-router';
 import MealItem from '../../components/MealItem.vue';
 
 const route = useRoute();
-const ingredient = ref('');
+const ingredients = ref('');
 
 function searchMealsByIngredient() {
-    store.dispatch('searchMealsByIngredient', ingredient.value)
+    store.dispatch('searchMealsByIngredient', ingredients.value)
 };
 
-watch(() => ingredient.value, () => {
+watch(() => ingredients.value, () => {
   searchMealsByIngredient();
 });
 
 
 onMounted(() => {
-  ingredient.value = route.params.meal as string
+  ingredients.value = route.params.ingredients as string
 
-  if (ingredient.value ) {
+  if (ingredients.value ) {
     searchMealsByIngredient();
   }
 })
