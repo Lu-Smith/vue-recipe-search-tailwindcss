@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts" setup>
-    import { onMounted, computed } from 'vue';
+    import { onMounted, computed, watch } from 'vue';
     import store from '../store';
     import { useRoute } from 'vue-router';
 
@@ -43,9 +43,13 @@
       strInstructions: string;
 }
 
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWYZ'.split('');
     const route = useRoute();
     const meals = computed<MealsProps[]>(() => store.state.searchedMealsByLetter);
+
+    watch(route, () => {
+      store.dispatch('searchMealsByLetter', route.params.letter)
+    })
 
     onMounted(() => {
       store.dispatch('searchMealsByLetter', route.params.letter)
