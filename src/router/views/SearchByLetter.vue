@@ -9,7 +9,9 @@
         </router-link>
       </div>
     </div>
-    <pre>{{ meals }}</pre>
+    <div v-for="meal of meals" :key="meal.idMeal">
+      {{ meal.strMeal }}
+    </div>
 </template>
 
 <script lang="ts" setup>
@@ -17,9 +19,17 @@
     import store from '../store';
     import { useRoute } from 'vue-router';
 
+    interface MealsProps {
+      strYoutube: string;
+      strMeal: string;
+      strMealThumb: string;
+      idMeal: string;
+      strInstructions: string;
+}
+
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     const route = useRoute();
-    const meals = computed(() => store.state.searchedMealsByLetter);
+    const meals = computed<MealsProps[]>(() => store.state.searchedMealsByLetter);
 
     onMounted(() => {
       store.dispatch('searchMealsByLetter', route.params.letter)
