@@ -1,8 +1,8 @@
 import axiosClient from '../../axiosClient';
 import { Commit } from 'vuex';
 
-export function searchMeals({commit}: { commit: Commit }, keyword: string) {
-    axiosClient.get(`search.php?s=${keyword}`)
+export function searchMeals({commit}: { commit: Commit }, letter: string) {
+    axiosClient.get(`search.php?f=${letter}`)
     .then(({data}) => {
         commit('setSearchedMeals', data.meals)
     })
