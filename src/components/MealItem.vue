@@ -1,7 +1,5 @@
 <template>
     <div 
-        v-for="meal of meals" 
-        :key="meal.idMeal" 
         class="bg-addColor shadow rounded-xl tracking-wide flex
         justify-between flex-col w-full">
         <router-link :to="{ name: 'mealDetails', params: { id: meal.idMeal } }">
@@ -36,17 +34,13 @@
 
 <script lang="ts" setup>
 import YouTubeButton from './YouTubeButton.vue';
- import { computed } from 'vue';
- import store from '../router/store';
 
-interface MealsProps {
-      strYoutube: string;
-      strMeal: string;
-      strMealThumb: string;
-      idMeal: string;
-      strInstructions: string;
+const { meal } = defineProps ({
+meal: {
+    requires: true,
+    type: Object,
 }
-const meals = computed<MealsProps[]>(() => store.state.searchedMeals);
+})
 
 const truncateInstructions = (instructions:string) => {
   const words = instructions.split(' ');
