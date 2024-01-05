@@ -9,7 +9,24 @@
       />
     </div>
     <div v-for="meal of meals" :key="meal.idMeal">
-     {{ meal.strMeal }}
+      <div class="bg-addColor shadow rounded-xl tracking-wide flex
+        justify-between flex-col w-full">
+        <router-link :to="{ name: 'mealDetails', params: { id: meal.idMeal } }">
+          <img 
+            :src="meal.strMealThumb" 
+            :alt="meal.strMeal"
+            class="rounded-t-xl h-48 object-cover w-full">
+        </router-link>
+        <div class="flex items-center md:items-start justify-between h-full flex-col ">
+          <h3 
+              class="px-5 md:px-3 py-3 md:py-2 font-bold flex-1">
+              {{ meal.strMeal }}
+          </h3>
+
+        </div>
+       
+      </div>
+    
     </div>
     
   </template>
@@ -24,13 +41,11 @@ interface MealsProps {
     strMeal: string;
     strMealThumb: string;
     idMeal: string;
-    strInstructions: string;
 }
 
 const route = useRoute();
 const ingredients = ref('');
 const meals = computed<MealsProps[]>(() => store.state.searchedMealsByIngredient);
-
 
 function searchMealsByIngredient() {
   if (ingredients.value) {
