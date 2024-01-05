@@ -23,7 +23,7 @@
                 <YouTubeButton :href="meal.strYoutube">YouTube</YouTubeButton>
                 <router-link :to="{ name: 'mealDetails', params: {  id: meal.idMeal } }" class="w-full flex">
                     <span class="px-3 py-2 rounded border border-textColor
-                    hover:bg-bgColor transition-colors w-full text-center">
+                    hover:bg-linksColor transition-colors w-full text-center">
                         View
                     </span>
                 </router-link>

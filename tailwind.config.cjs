@@ -5,10 +5,10 @@ module.exports = {
     theme: {
       extend: {
         colors: {
-          linksColor: '#f95959', 
+          linksColor: '#f96d00', 
           textColor: '#e3e3e3', 
-          bgColor: '#233142',
-          addColor: '#455d7a'
+          bgColor: '#222831',
+          addColor: '#393e46'
         },
       },
     },
