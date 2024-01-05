@@ -17,17 +17,9 @@ import store from '../store';
 import { useRoute } from 'vue-router';
 import Meals from '../../components/Meals.vue';
 
-interface MealsProps {
-      strYoutube: string;
-      strMeal: string;
-      strMealThumb: string;
-      idMeal: string;
-      strInstructions: string;
-}
-
 const route = useRoute();
 const keyword = ref('');
-const meals = computed<MealsProps[]>(() => store.state.searchedMeals);
+const meals = computed(() => store.state.searchedMeals);
 
 function searchMeals() {
   if (keyword.value) {
@@ -44,6 +36,7 @@ watch(() => keyword.value, () => {
 
 onMounted(() => {
   keyword.value = route.params.meal as string
+
   if (keyword.value ) {
     searchMeals();
   }

@@ -8,7 +8,7 @@
         v-model="ingredients"
       />
     </div>
-
+    <p>{{ ingredients }}</p>
     <Meals :meals="meals" />
   </template>
 
@@ -24,7 +24,11 @@ const meals = computed(() => store.state.searchedMealsByIngredient)
 
 
 function searchMealsByIngredient() {
-    store.dispatch('searchMealsByIngredient', ingredients.value)
+  if (ingredients.value) {
+    store.dispatch("searchMealsByIngredient", ingredients.value);
+  } else {
+    store.commit("setSearchedMealsByIngredient", []);
+  }
 };
 
 watch(() => ingredients.value, () => {
