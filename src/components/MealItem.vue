@@ -37,7 +37,7 @@ import YouTubeButton from './YouTubeButton.vue';
 
 const { meal } = defineProps ({
 meal: {
-    requires: true,
+    required: true,
     type: Object,
 }
 })
