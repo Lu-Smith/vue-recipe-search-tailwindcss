@@ -8,20 +8,19 @@
         v-model="ingredients"
       />
     </div>
-    <div 
-        class="grid grid-cols-2 gap-5 md:grid-cols-3 p-8">
-        <MealItem />
-    </div>
+    <Meals :meals="meals" />
   </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch, computed} from 'vue';
 import store from '../store';
 import { useRoute } from 'vue-router';
-import MealItem from '../../components/MealItem.vue';
+import Meals from '../../components/Meals.vue';
 
 const route = useRoute();
 const ingredients = ref('');
+const meals = computed(() => store.state.searchedMealsByIngredient)
+
 
 function searchMealsByIngredient() {
     store.dispatch('searchMealsByIngredient', ingredients.value)
