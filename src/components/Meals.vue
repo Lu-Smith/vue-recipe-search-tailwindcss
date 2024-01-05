@@ -11,11 +11,16 @@
 <script setup lang="ts">
 import MealItem from './MealItem.vue';
 
-const { meals } = defineProps({
+interface MealsProps {
   meals: {
-    required: true,
-    type: Array,
-  }
-})
+    strYoutube: string;
+    strMeal: string;
+    strMealThumb: string;
+    idMeal: string;
+    strInstructions: string;
+  }[];
+}
+
+const { meals } = defineProps<MealsProps>();
 
 </script>
