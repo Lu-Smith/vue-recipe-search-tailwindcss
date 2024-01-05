@@ -1,5 +1,5 @@
 <template>
-  <h3 class="fixed bottom-4 right-4 w-ful text-sm mt-2">
+  <h3 class="fixed bottom-4 right-4 w-ful text-sm mt-2 bg-bgColor p-2 rounded">
     Coded by 
     <a 
     href="https://www.lunasmithart.com/" 
