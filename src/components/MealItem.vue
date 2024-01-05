@@ -1,12 +1,12 @@
 <template>
     <div 
-        class="bg-addColor shadow rounded-xl tracking-wide flex
+        class="bg-addColor shadow rounded md:rounded-xl tracking-wide flex
         justify-between flex-col w-full">
         <router-link :to="{ name: 'mealDetails', params: { id: meal.idMeal } }">
           <img 
             :src="meal.strMealThumb" 
             :alt="meal.strMeal"
-            class="rounded-t-xl h-48 object-cover w-full">
+            class="rounded-t md:rounded-t-xl h-48 object-cover w-full">
         </router-link>
         <div class="flex items-center md:items-start justify-between h-full flex-col ">
             <h3 
@@ -18,7 +18,7 @@
                 {{ truncateInstructions(meal.strInstructions) }}
             </p>
             <div 
-                class="px-3 py-3 w-full flex justify-center md:justify-between gap-5 md:gap-3
+                class="px-3 py-3 w-full flex justify-center md:justify-between gap-4 md:gap-3
                 items-center md:items-baseline flex-col md:flex-row mb-4">
                 <YouTubeButton :href="meal.strYoutube">YouTube</YouTubeButton>
                 <router-link :to="{ name: 'mealDetails', params: {  id: meal.idMeal } }" class="w-full flex">
