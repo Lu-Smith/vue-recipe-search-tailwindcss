@@ -8,6 +8,9 @@
         v-model="ingredients"
       />
     </div>
+    <div v-if="!meals.length" class="flex justify-center text-gray-600 p-8">
+        There are no meals
+    </div>
     <div v-for="meal of meals" :key="meal.idMeal">
       <div class="bg-addColor shadow rounded tracking-wide flex
         justify-center flex-col md:w-1/3 sm:w-1/2 text-center m-8 md:mx-auto">
@@ -62,7 +65,6 @@ watch(() => ingredients.value, () => {
 
 onMounted(() => {
   ingredients.value = route.params.ingredients as string
-  console.log(ingredients.value)
 
   if (ingredients.value ) {
     searchMealsByIngredient();
