@@ -5,13 +5,17 @@ interface State {
 }
 
 export function setSearchedMeals(state: State, meals: string[]) {
-    state.searchedMeals = meals
+    state.searchedMeals = meals || []
 };
 
 export function setSearchedMealsByLetter(state: State, meals: string[]) {
-    state.searchedMealsByLetter = meals
+    state.searchedMealsByLetter = meals || []
 };
 
 export function setSearchedMealsByIngredient(state: State, meals: string[]) {
-    state.searchedMealsByIngredient = meals
+    state.searchedMealsByIngredient = meals || []
 };
+
+export function setIngredient(state: State, ingredients) {
+    state.ingredients = ingredients
+  }
