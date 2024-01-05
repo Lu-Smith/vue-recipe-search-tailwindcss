@@ -15,7 +15,3 @@ export function setSearchedMealsByLetter(state: State, meals: string[]) {
 export function setSearchedMealsByIngredient(state: State, meals: string[]) {
     state.searchedMealsByIngredient = meals || []
 };
-
-export function setIngredient(state: State, ingredient) {
-    state.ingredient = ingredient
-}

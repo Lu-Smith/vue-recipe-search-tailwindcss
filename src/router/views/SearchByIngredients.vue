@@ -8,6 +8,7 @@
         v-model="ingredients"
       />
     </div>
+
     <Meals :meals="meals" />
   </template>
 
