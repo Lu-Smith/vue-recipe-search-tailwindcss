@@ -8,17 +8,14 @@
         v-model="keyword"
       />
     </div>
-    <div 
-        class="grid grid-cols-2 gap-5 md:grid-cols-3 p-8">
-        <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal"/>
-    </div>
+    <Meals :meals="meals" />
   </template>
 
 <script setup lang="ts">
 import { ref, onMounted, watch, computed } from 'vue';
 import store from '../store';
 import { useRoute } from 'vue-router';
-import MealItem from '../../components/MealItem.vue';
+import Meals from '../../components/Meals.vue';
 
 interface MealsProps {
       strYoutube: string;
