@@ -28,32 +28,31 @@
   import axiosClient from "../../axiosClient";
   import store from "../store";
 
-  interface MealsProps {
-      idIngredient: string;
-      strIngredient: string;
+  interface Ingredient {
+  idIngredient: string;
+  strIngredient: string;
 }
-  
-  const router = useRouter();
-  const keyword = ref("");
-  const ingredients = ref<MealsProps[]>([]);
-  const computedIngredients = computed(() => {
-    if (!computedIngredients) return ingredients;
-    return ingredients.value.filter((i) =>
-      i.strIngredient.toLowerCase().includes(keyword.value.toLowerCase())
-    );
+
+const router = useRouter();
+const keyword = ref("");
+const ingredients = ref<Ingredient[]>([]);
+const computedIngredients = computed(() => {
+  return ingredients.value.filter((i) =>
+    i.strIngredient.toLowerCase().includes(keyword.value.toLowerCase())
+  );
+});
+
+function openIngredient(ingredient: Ingredient) {
+  store.commit('setIngredient', ingredient)
+  router.push({
+    name: "byIngredient",
+    params: { ingredient: ingredient.strIngredient },
   });
-  
-  function openIngredient(ingredient) {
-    store.commit('setIngredient', ingredient)
-    router.push({
-      name: "byIngredient",
-      params: { ingredient: ingredient.strIngredient },
-    });
-  }
-  
-  onMounted(() => {
-    axiosClient.get("list.php?i=list").then(({ data }) => {
-      ingredients.value = data.meals;
-    });
+}
+
+onMounted(() => {
+  axiosClient.get("list.php?i=list").then(({ data }) => {
+    ingredients.value = data.meals;
   });
-  </script>
+});
+</script>
