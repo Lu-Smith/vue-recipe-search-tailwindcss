@@ -25,7 +25,7 @@
                   :src="meal.strMealThumb" 
                   :alt="meal.strMeal"
                   class="rounded-xl h-48 object-cover w-full">
-            </router-link>
+          </router-link>
         </div>
       </div>
   </div>

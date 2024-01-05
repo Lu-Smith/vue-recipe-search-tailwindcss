@@ -1,29 +1,30 @@
 <template>
-  <div class="flex p-8 justify-center items-center flex-col gap-2">
-    <div v-for="recipe in recipes" :key="recipe.idIngredient" class="w-full">
-      <pre>{{ recipe.strIngredient }}</pre>
-      <pre>{{ recipe.strDescription }}</pre>
-    </div>
+  <div class="p-8 pb-0 text-orange-500">
+    <h1 class="text-4xl font-bold mb-4">Random Meals</h1>
   </div>
+  <Meals :meals="meals" />
 </template>
 
 <script lang="ts" setup>
-    import { onMounted, ref } from 'vue';
-    import axiosClient from '../../axiosClient.ts';
+  import { onMounted, ref } from "vue";
+  import Meals from "../../components/Meals.vue";
+  import axiosClient from "../../axiosClient";
 
-    interface Recipe {
-      idIngredient: string;
-      strIngredient: string;
-      strDescription: string;
-      strType: string | null;
+  interface MealsProps {
+      strYoutube: string;
+      strMeal: string;
+      strMealThumb: string;
+      idMeal: string;
+      strInstructions: string;
+}
+
+  const meals = ref<MealsProps[]>([]);
+
+  onMounted(async () => {
+    for (let i = 0; i < 10; i++) {
+      axiosClient
+        .get(`random.php`)
+        .then(({ data }) => meals.value.push(data.meals[0]));
     }
-
-    const ingredients = ref<{ meals: Recipe[] }>({ meals: [] });ref([]);
-    const recipes = ref<Recipe[]>([]);
-
-    onMounted(async () => {
-      const response = await axiosClient.get('list.php?i=list')
-      ingredients.value = response.data
-      recipes.value = ingredients.value.meals
-    })
+  });
 </script>

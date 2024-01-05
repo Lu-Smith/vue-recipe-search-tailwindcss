@@ -18,4 +18,4 @@ export function setSearchedMealsByIngredient(state: State, meals: string[]) {
 
 export function setIngredient(state: State, ingredients) {
     state.ingredients = ingredients
-  }
+}
