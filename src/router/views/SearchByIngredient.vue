@@ -9,13 +9,13 @@
       />
     </div>
     <div v-for="meal of meals" :key="meal.idMeal">
-      <div class="bg-addColor shadow rounded-xl tracking-wide flex
-        justify-between flex-col w-full">
+      <div class="bg-addColor shadow rounded tracking-wide flex
+        justify-center flex-col md:w-1/3 sm:w-1/2 text-center m-8 md:mx-auto">
         <router-link :to="{ name: 'mealDetails', params: { id: meal.idMeal } }">
           <img 
             :src="meal.strMealThumb" 
             :alt="meal.strMeal"
-            class="rounded-t-xl h-48 object-cover w-full">
+            class="rounded-t h-48 object-cover w-full">
         </router-link>
         <div class="flex items-center md:items-start justify-between h-full flex-col ">
           <h3 
