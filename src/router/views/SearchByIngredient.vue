@@ -8,19 +8,28 @@
         v-model="ingredients"
       />
     </div>
-    <p>{{ ingredients }}</p>
-    <Meals :meals="meals" />
+    <div v-for="meal of meals" :key="meal.idMeal">
+     {{ meal.strMeal }}
+    </div>
+    
   </template>
 
 <script setup lang="ts">
 import { ref, onMounted, watch, computed} from 'vue';
 import store from '../store';
 import { useRoute } from 'vue-router';
-import Meals from '../../components/Meals.vue';
+
+interface MealsProps {
+    strYoutube: string;
+    strMeal: string;
+    strMealThumb: string;
+    idMeal: string;
+    strInstructions: string;
+}
 
 const route = useRoute();
 const ingredients = ref('');
-const meals = computed(() => store.state.searchedMealsByIngredient)
+const meals = computed<MealsProps[]>(() => store.state.searchedMealsByIngredient);
 
 
 function searchMealsByIngredient() {
@@ -38,6 +47,7 @@ watch(() => ingredients.value, () => {
 
 onMounted(() => {
   ingredients.value = route.params.ingredients as string
+  console.log(ingredients.value)
 
   if (ingredients.value ) {
     searchMealsByIngredient();
