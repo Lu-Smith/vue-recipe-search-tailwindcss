@@ -51,7 +51,7 @@
         <div class=" px-8 mt-2 mb-8 flex justify-between gap-5 items-center md:w-1/2 mx-auto">
             <YouTubeButton :href="meal.strYoutube">Go to YouTube</YouTubeButton>
             <a 
-            :href="meal.strSource" 
+            :href="getSingleSource(meal.strSource)" 
             target="_blank" 
             class=" px-3 py-2 rounded
             hover:bg-addColor transition-colors w-full text-center">
@@ -80,6 +80,14 @@ interface MealsProps {
       strMeasure: string[];
       [key: string]: string | string[];
 }
+
+const getSingleSource = (source: string | string[] | undefined): string | undefined => {
+  if (Array.isArray(source)) {
+    // Use the first element if it's an array
+    return source[0];
+  }
+  return source;
+};
 
 const route = useRoute();
 const meal = ref<MealsProps>({
